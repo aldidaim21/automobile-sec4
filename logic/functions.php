@@ -1,8 +1,52 @@
 <?php
-$konek = mysqli_connect('localhost', 'root', '', 'section4');
-// Check connection
+
+$conn = mysqli_connect('localhost', 'root', '', 'section4');
+
+// cek koneksi database	 
 if (mysqli_connect_errno()) {
 	echo "Koneksi database gagal : " . mysqli_connect_error();
-} else {
-	echo "koneksi berhasil";
+}
+
+
+
+// menampilkan  query database
+function query($query)
+{
+	global $conn;
+	$result = mysqli_query($conn, $query);
+	$rows = [];
+	while ($row = mysqli_fetch_assoc($result)) {
+		$rows[] = $row;
+	}
+	return $rows;
+}
+
+
+// Fungsi Tambah customers
+function tambah($data)
+{
+	global $conn;
+
+	// untukmendapatkan waktu sekarang
+
+	// get form dari script html
+	$first_name = htmlspecialchars($data["first_name"]);
+	$last_name = htmlspecialchars($data["last_name"]);
+	$company_name = htmlspecialchars($data["company_name"]);
+	$address = htmlspecialchars($data["address"]);
+	$mobile = htmlspecialchars($data["mobile"]);
+	$email = htmlspecialchars($data["email"]);
+	$detail = htmlspecialchars($data["detail"]);
+
+
+
+
+	$query = "INSERT INTO customer
+				VALUES
+				('','$first_name', '$last_name', '$company_name','$address', '$mobile', '$email', '$detail', current_timestamp())
+			 ";
+
+	mysqli_query($conn, $query);
+	return mysqli_affected_rows($conn);
+	echo "Pernyataan SQL: $query";
 }
