@@ -37,7 +37,7 @@ function tambah($data)
 	$mobile = htmlspecialchars($data["mobile"]);
 	$email = htmlspecialchars($data["email"]);
 	$detail = htmlspecialchars($data["detail"]);
-	
+
 	$query = "INSERT INTO customer
 				VALUES
 				('','$first_name', '$last_name', '$company_name','$address', '$mobile', '$email', '$detail', current_timestamp())
@@ -45,23 +45,39 @@ function tambah($data)
 
 	mysqli_query($conn, $query);
 	return mysqli_affected_rows($conn);
-	echo "Pernyataan SQL: $query";
 }
+
+function hapus($id)
+{
+	global $conn;
+	mysqli_query($conn, "DELETE FROM customer WHERE id = $id");
+	return mysqli_affected_rows($conn);
+}
+
+// Fungsi edit data
 function update($data)
 {
 	global $conn;
 
+	$id = $data["id"];
 	$first_name = htmlspecialchars($data["first_name"]);
 	$last_name = htmlspecialchars($data["last_name"]);
-	$company_name = htmlspecialchars($data[""]);
+	$company_name = htmlspecialchars($data["company_name"]);
 	$address = htmlspecialchars($data["address"]);
-	$mobile = htmlspecialchars($data[""]);
+	$mobile = htmlspecialchars($data["mobile"]);
 	$email = htmlspecialchars($data["email"]);
-	$detail = htmlspecialchars($data[""]);
+	$detail = htmlspecialchars($data["detail"]);
 
 	$query = "UPDATE customer SET
-				first_name = $first_name, last_name = $last_name, company_name = $company_name, address = $address, mobile = $mobile. email = $email, detail = $detail";
+				first_name = $first_name, 
+				last_name = $last_name, 
+				company_name = $company_name, 
+				address = $address, 
+				mobile = $mobile. 
+				email = $email, 
+				detail = $detail
+				WHERE id = $id
+				";
 	mysqli_query($conn, $query);
 	return mysqli_affected_rows($conn);
-	echo "Pernyataan SQL: $query;"	
 }

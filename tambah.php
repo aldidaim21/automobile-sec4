@@ -1,3 +1,23 @@
+<?php
+// Include file koneksi dan fungsi query
+include 'logic/functions.php';
+$conn = mysqli_connect('localhost', 'root', '', 'section4');
+// Cek apakah form telah di-submit
+if (isset($_POST['submit'])) {
+    // Panggil fungsi tambah
+    if (tambah($_POST) > 0) {
+        echo "<script>
+			alert('Data berhasil ditambahkan!');
+			document.location.href='index.php';
+			</script>";
+    } else {
+        echo "<script>
+			alert('Data gagal ditambahkan!');
+			document.location.href='index.php';
+			</script>";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,21 +54,6 @@
 
         <input type="submit" name="submit" value="Tambah">
     </form>
-
-    <?php
-    // Include file koneksi dan fungsi query
-    include 'logic/functions.php';
-
-    // Cek apakah form telah di-submit
-    if (isset($_POST['submit'])) {
-        // Panggil fungsi tambah
-        if (tambah($_POST) > 0) {
-            echo "Data berhasil ditambahkan.";
-        } else {
-            echo "Gagal menambahkan data.";
-        }
-    }
-    ?>
 
 </body>
 
