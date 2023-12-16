@@ -37,10 +37,7 @@ function tambah($data)
 	$mobile = htmlspecialchars($data["mobile"]);
 	$email = htmlspecialchars($data["email"]);
 	$detail = htmlspecialchars($data["detail"]);
-
-
-
-
+	
 	$query = "INSERT INTO customer
 				VALUES
 				('','$first_name', '$last_name', '$company_name','$address', '$mobile', '$email', '$detail', current_timestamp())
@@ -49,4 +46,22 @@ function tambah($data)
 	mysqli_query($conn, $query);
 	return mysqli_affected_rows($conn);
 	echo "Pernyataan SQL: $query";
+}
+function update($data)
+{
+	global $conn;
+
+	$first_name = htmlspecialchars($data["first_name"]);
+	$last_name = htmlspecialchars($data["last_name"]);
+	$company_name = htmlspecialchars($data[""]);
+	$address = htmlspecialchars($data["address"]);
+	$mobile = htmlspecialchars($data[""]);
+	$email = htmlspecialchars($data["email"]);
+	$detail = htmlspecialchars($data[""]);
+
+	$query = "UPDATE customer SET
+				first_name = $first_name, last_name = $last_name, company_name = $company_name, address = $address, mobile = $mobile. email = $email, detail = $detail";
+	mysqli_query($conn, $query);
+	return mysqli_affected_rows($conn);
+	echo "Pernyataan SQL: $query;"	
 }
