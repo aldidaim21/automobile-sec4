@@ -1,6 +1,7 @@
 <?php
 
-$conn = mysqli_connect('localhost', 'root', '', 'section4');
+$conn = mysqli_connect("localhost", "root", "", "section4");
+
 
 // cek koneksi database	 
 if (mysqli_connect_errno()) {
@@ -69,15 +70,16 @@ function update($data)
 	$detail = htmlspecialchars($data["detail"]);
 
 	$query = "UPDATE customer SET
-				first_name = $first_name, 
-				last_name = $last_name, 
-				company_name = $company_name, 
-				address = $address, 
-				mobile = $mobile. 
-				email = $email, 
-				detail = $detail
-				WHERE id = $id
-				";
+                first_name = '$first_name', 
+                last_name = '$last_name', 
+                company_name = '$company_name', 
+                address = '$address', 
+                mobile = '$mobile',
+                email = '$email', 
+                detail = '$detail',
+                insert_ts = current_timestamp()
+                WHERE id = $id";
+
 	mysqli_query($conn, $query);
 	return mysqli_affected_rows($conn);
 }
