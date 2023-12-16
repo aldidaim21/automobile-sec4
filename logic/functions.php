@@ -31,6 +31,7 @@ function tambah($data)
 	// untukmendapatkan waktu sekarang
 
 	// get form dari script html
+	$id = htmlspecialchars($data["id"]);
 	$first_name = htmlspecialchars($data["first_name"]);
 	$last_name = htmlspecialchars($data["last_name"]);
 	$company_name = htmlspecialchars($data["company_name"]);
@@ -41,7 +42,7 @@ function tambah($data)
 
 	$query = "INSERT INTO customer
 				VALUES
-				('','$first_name', '$last_name', '$company_name','$address', '$mobile', '$email', '$detail', current_timestamp())
+				('$id','$first_name', '$last_name', '$company_name','$address', '$mobile', '$email', '$detail', current_timestamp())
 			 ";
 
 	mysqli_query($conn, $query);

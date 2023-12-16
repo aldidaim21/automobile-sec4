@@ -31,6 +31,10 @@ if (isset($_POST['submit'])) {
 
     <h2>Tambah Data Customer</h2>
     <form action="tambah.php" method="post">
+        <label for="first_name">id</label>
+        <input type="text" name="id" required><br>
+
+
         <label for="first_name">First Name:</label>
         <input type="text" name="first_name" required><br>
 
