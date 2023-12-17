@@ -3,12 +3,12 @@ include 'logic/functions.php';
 // ambil data di URL
 $id = $_GET["id"];
 // query data layanan
-$layanan = query("SELECT * FROM service_catalog:services & offers WHERE id = $id")[0];
+$layanan = query("SELECT * FROM service_catalog WHERE id = $id")[0];
 
 // cek apakah tombol submit 
 if (isset($_POST["submit"])) {
 
-    if (update($_POST) > 0) {
+    if (update_layanan($_POST) > 0) {
         echo "
 			<script>
 			alert('Data berhasil diubah!');

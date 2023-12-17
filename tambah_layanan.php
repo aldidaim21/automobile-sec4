@@ -7,15 +7,15 @@ $conn = mysqli_connect('localhost', 'root', '', 'section4');
 // Cek apakah form telah di-submit
 if (isset($_POST['submit'])) {
     // Panggil fungsi tambah
-    if (tambah($_POST) > 0) {
+    if (tambah_layanan($_POST) > 0) {
         echo "<script>
 			alert('Data berhasil ditambahkan!');
-			document.location.href='index2.php';
+			document.location.href='layanan.php';
 			</script>";
     } else {
         echo "<script>
 			alert('Data gagal ditambahkan!');
-			document.location.href='index2.php';
+			document.location.href='layanan.php';
 			</script>";
     }
 }
@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
 <body>
 
     <h2>Tambah Data Layanan</h2>
-    <form action="tambah2.php" method="post">
+    <form action="tambah_layanan.php" method="post">
         <label for="service_name">ID</label>
         <input type="text" name="id" required><br>
 
