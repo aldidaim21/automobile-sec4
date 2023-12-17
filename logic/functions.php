@@ -134,3 +134,55 @@ function update_layanan($data)
 	mysqli_query($conn, $query);
 	return mysqli_affected_rows($conn);
 }
+
+// Menambah fungsi untuk tabel contact
+function tambah_contact($data)
+{
+	global $conn;
+
+	$id = htmlspecialchars($data["id"]);
+	$contact_type_id = htmlspecialchars($data["contact_type_id"]);
+	$customer_id = htmlspecialchars($data["customer_id"]);
+	$schedule_id = htmlspecialchars($data["schedule_id"]);
+	$contact_details = htmlspecialchars($data["contact_details"]);
+
+	$query = "INSERT INTO contact
+			VALUES
+			('$id',
+			'$contact_type_id',
+			'$customer_id',
+			'$schedule_id',
+			'$contact_details', 
+			current_timestamp())
+			";
+
+	mysqli_query($conn, $query);
+	return mysqli_affected_rows($conn);
+}
+function hapus_contact($id)
+{
+	global $conn;
+	mysqli_query($conn, "DELETE FROM contact WHERE id = $id");
+	return mysqli_affected_rows($conn);
+}
+
+function update_contact($data)
+{
+	global $conn;
+
+	$id = $data["id"];
+	$contact_type_id = htmlspecialchars($data["contact_type_id"]);
+	$customer_id = htmlspecialchars($data["customer_id"]);
+	$schedule_id = htmlspecialchars($data["schedule_id"]);
+	$contact_details = htmlspecialchars($data["contact_details"]);
+
+	$query = "UPDATE contact SET
+                contact_type_id = '$contact_type_id', 
+                customer_id = '$customer_id', 
+                schedule_id = '$schedule_id', 
+                contact_details = '$contact_details'
+                WHERE id = $id";
+
+	mysqli_query($conn, $query);
+	return mysqli_affected_rows($conn);
+}

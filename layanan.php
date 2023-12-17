@@ -25,24 +25,24 @@ $layanan = query("SELECT * FROM service_catalog");
             <th>Is Active</th>
             <th>Action</th>
         </tr>
-        <?php foreach ($layanan as $baris) :
+        <?php foreach ($layanan as $row) :
 
             // logic layanan ketika aktif dan tidak aktif
-            if ($baris["is_active"] == 1) {
-                $hasil = "aktif";
+            if ($row["is_active"] == 1) {
+                $result = "aktif";
             } else {
-                $hasil = "Tidak aktif";
+                $result = "Tidak aktif";
             } ?>
 
             <tr>
-                <td><?php echo $baris["id"]; ?></td>
-                <td><?php echo $baris["service_name"]; ?></td>
-                <td><?php echo $baris["description"]; ?></td>
-                <td><?php echo $baris["service_discount"]; ?></td>
-                <td><?php echo $hasil ?></td>
+                <td><?php echo $row["id"]; ?></td>
+                <td><?php echo $row["service_name"]; ?></td>
+                <td><?php echo $row["description"]; ?></td>
+                <td><?php echo $row["service_discount"]; ?></td>
+                <td><?php echo $result ?></td>
                 <td>
-                    <a href="delete_layanan.php?id=<?php echo $baris["id"] ?>" class="btn btn-primary btn-sm active btn-dark ml-5" role="button" aria-pressed="true" onclick="return confirm('Apakah Anda yakin?');">Hapus</a>
-                    <a href="update_layanan.php?id=<?= $baris["id"]; ?>">Perbarui</a>
+                    <a href="delete_layanan.php?id=<?php echo $row["id"] ?>" class="btn btn-primary btn-sm active btn-dark ml-5" role="button" aria-pressed="true" onclick="return confirm('Apakah Anda yakin?');">Hapus</a>
+                    <a href="update_layanan.php?id=<?= $row["id"]; ?>">Perbarui</a>
                 </td>
             </tr>
         <?php endforeach; ?>
