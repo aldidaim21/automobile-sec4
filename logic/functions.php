@@ -84,3 +84,54 @@ function update($data)
 	mysqli_query($conn, $query);
 	return mysqli_affected_rows($conn);
 }
+
+// Menambahkan layanan ke tabel service_catalog
+function tambah2($data)
+{
+    global $conn;
+
+    $id = htmlspecialchars($data["id"]);
+    $service_name = htmlspecialchars($data["service_name"]);
+    $description = htmlspecialchars($data["description"]);
+    $service_discount = htmlspecialchars($data["service_discount"]);
+    $is_active = htmlspecialchars($data["is_active"]);
+
+    $query = "INSERT INTO service_catalog:services & offers 
+                VALUES
+                ('$id', '$service_name', '$description', '$service_discount', '$is_active')
+             ";
+
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+
+// Menghapus layanan dari tabel service_catalog
+function hapus2($id)
+{
+    global $conn;
+    mysqli_query($conn, "DELETE FROM service_catalog:services & offers WHERE id = $id");
+    return mysqli_affected_rows($conn);
+}
+
+// Memperbarui informasi layanan di tabel service_catalog
+function update2($data)
+{
+    global $conn;
+
+    $id = $data["id"];
+    $service_name = htmlspecialchars($data["service_name"]);
+    $description = htmlspecialchars($data["description"]);
+    $service_discount = htmlspecialchars($data["service_discount"]);
+    $is_active = htmlspecialchars($data["is_active"]);
+
+    $query = "UPDATE service_catalog:services & offers SET
+                service_name = '$service_name', 
+                description = '$description', 
+                service_discount = '$service_discount', 
+                is_active = '$is_active'
+                WHERE id = $id";
+
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
+}
+?>
