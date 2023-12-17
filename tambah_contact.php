@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
         <textarea type="text" name="customer_id"></textarea><br>
 
         <label for="schedule_id">Schedule ID:</label>
-        <input type="date" name="schedule_id" required><br>
+        <input type="text" name="schedule_id" required><br>
 
         <label for="contact_details">Contact Details:</label>
         <input type="text" name="contact_details" required><br>
