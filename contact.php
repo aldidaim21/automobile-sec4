@@ -34,9 +34,9 @@ $contact = query("SELECT * FROM contact");
                 <td><?php echo $row["schedule_id"]; ?></td>
                 <td><?php echo $row["contact_details"]; ?></td>
 
-                <td><a href="delete.php?id=<?php echo $row["id"] ?>" class="btn btn-primary btn-sm active btn-dark ml-5" role="button" aria-pressed="true" onclick="return confirm('yakin');">Delete</a></td>
+                <td><a href="delete_contact.php?id=<?php echo $row["id"] ?>" class="btn btn-primary btn-sm active btn-dark ml-5" role="button" aria-pressed="true" onclick="return confirm('yakin');">Delete</a></td>
 
-                <td><a href="update.php?id=<?= $row["id"]; ?>">UPDATE</td>
+                <td><a href="update_contact.php?id=<?= $row["id"]; ?>">UPDATE</td>
 
             </tr>
         <?php endforeach; ?>

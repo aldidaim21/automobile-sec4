@@ -12,14 +12,14 @@ if (isset($_POST["submit"])) {
         echo "
 			<script>
 			alert('Data berhasil diubah!');
-			document.location.href='index.php';
+			document.location.href='layanan.php';
 			</script>
 		";
     } else {
         echo "
             <script>
             alert('Data gagal diubah!');
-            document.location.href='index.php';
+            document.location.href='layanan.php';
             </script>
     ";
     }
