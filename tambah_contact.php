@@ -2,6 +2,13 @@
 // Include file koneksi dan fungsi query
 include 'logic/functions.php';
 $conn = mysqli_connect('localhost', 'root', '', 'section4');
+$id = $_GET["id"];
+// query data customer 
+$cust = query("SELECT * FROM customer WHERE id = $id")[0];
+$cty = query("SELECT * FROM forfk");
+$sc = query("SELECT * FROM forfk2");
+
+
 // Cek apakah form telah di-submit
 if (isset($_POST['submit'])) {
     // Panggil fungsi tambah
@@ -34,14 +41,23 @@ if (isset($_POST['submit'])) {
         <label for="id">ID</label>
         <input type="text" name="id" required><br>
 
-        <label for="contact_type_id">Contact Type ID:</label>
+        <label for=" contact_type_id">Contact Type ID:</label>
+        <select>
+            <?php foreach ($cty as $baris) : ?>
+                <option name="contact_type_id" value="<?php echo $baris["contact_type_id"]; ?>"><?php echo $baris["contact_type_id"]; ?></option>
+            <?php endforeach ?>
+        </select><br>
         <input type="text" name="contact_type_id" required><br>
 
         <label for="customer_id">Customer ID:</label>
-        <textarea type="text" name="customer_id"></textarea><br>
+        <input type="text" name="customer_id" value="<?php echo $cust["id"]; ?>"><br>
 
-        <label for="schedule_id">Schedule ID:</label>
-        <input type="text" name="schedule_id" required><br>
+        <label for="">Schedule ID</label>
+        <select>
+            <?php foreach ($sc as $row) : ?>
+                <option name="schedule_id" value="<?php echo $row["schedule_id"]; ?>"><?php echo $row["schedule_id"]; ?></option>
+            <?php endforeach ?>
+        </select><br>
 
         <label for="contact_details">Contact Details:</label>
         <input type="text" name="contact_details" required><br>

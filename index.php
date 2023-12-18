@@ -27,6 +27,7 @@ $users1 = query("SELECT * FROM customer");
             <th>Detail</th>
             <th>Delete</th>
             <th>Update</th>
+            <th>Tambah detail contact</th>
         </tr>
         <?php foreach ($users1 as $row) : ?>
             <tr>
@@ -42,6 +43,7 @@ $users1 = query("SELECT * FROM customer");
                 <td><a href="delete.php?id=<?php echo $row["id"] ?>" class="btn btn-primary btn-sm active btn-dark ml-5" role="button" aria-pressed="true" onclick="return confirm('yakin');">Delete</a></td>
 
                 <td><a href="update.php?id=<?= $row["id"]; ?>">UPDATE</td>
+                <td><a href="tambah_contact.php?id=<?= $row["id"]; ?>">Tambah detail contact</td>
 
             </tr>
         <?php endforeach; ?>

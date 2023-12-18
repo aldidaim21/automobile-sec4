@@ -25,6 +25,7 @@ $contact = query("SELECT * FROM contact");
             <th>Contact Details</th>
             <th>Delete</th>
             <th>Update</th>
+            <th>Contact</th>
         </tr>
         <?php foreach ($contact as $row) : ?>
             <tr>
@@ -37,6 +38,8 @@ $contact = query("SELECT * FROM contact");
                 <td><a href="delete_contact.php?id=<?php echo $row["id"] ?>" class="btn btn-primary btn-sm active btn-dark ml-5" role="button" aria-pressed="true" onclick="return confirm('yakin');">Delete</a></td>
 
                 <td><a href="update_contact.php?id=<?= $row["id"]; ?>">UPDATE</td>
+                <td><a href="tambah_contact.php?id=<?= $row["id"]; ?>">UPDATE</td>
+
 
             </tr>
         <?php endforeach; ?>
