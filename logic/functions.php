@@ -186,3 +186,8 @@ function update_contact($data)
 	mysqli_query($conn, $query);
 	return mysqli_affected_rows($conn);
 }
+
+function nyoba_contact($id)
+{
+	global $conn;
+}
