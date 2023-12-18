@@ -1,0 +1,23 @@
+/* navbar */
+.navbar .container-fluid {
+    margin: 0;
+    padding: 0;
+    padding-left: 20px;
+  }
+  
+  .navbar .container-fluid .navbar-brand {
+    padding: 15px;
+    background-color: #643bc4;
+  }
+  
+  /* tulisan navbar portofolio */
+  .navbar-brand {
+    color: #fff;
+    font-size: 30px;
+    font-weight: bolder;
+  }
+  
+  /* tulisan kecil nav */
+  .navbar-nav .nav-link {
+    color: #eae7b1;
+  }
