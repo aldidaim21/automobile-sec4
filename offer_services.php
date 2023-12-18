@@ -1,6 +1,6 @@
 <?php
 require 'logic/functions.php';
-$contact = query("SELECT * FROM offer_services");
+$offer_services = query("SELECT * FROM offer_services");
 
 
 ?>

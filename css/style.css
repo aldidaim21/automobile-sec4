@@ -1,0 +1,39 @@
+/* Gaya umum navbar */
+.navbar {
+  background-color: #3498db; /* Warna latar belakang navbar */
+}
+
+.navbar-brand {
+  color: #fff; /* Warna teks navbar brand */
+  font-size: 24px; /* Ukuran font navbar brand */
+  font-weight: bold; /* Ketebalan font navbar brand */
+  margin-right: 20px; /* Jarak kanan dari brand ke tombol toggler */
+}
+
+.navbar-toggler {
+  border-color: #fff; /* Warna garis tombol toggler */
+}
+
+/* Gaya untuk link navigasi */
+.navbar-nav {
+  margin-left: auto; /* Mendorong item menu ke sisi kanan */
+}
+
+.navbar-nav .nav-link {
+  color: #fff; /* Warna teks link navigasi */
+  margin-right: 15px; /* Jarak antar link navigasi */
+}
+
+.navbar-nav .nav-link.active {
+  color: #ffd700; /* Warna teks link navigasi yang aktif */
+}
+
+/* Gaya ikon tombol toggler */
+.navbar-toggler-icon {
+  background-color: #fff; /* Warna latar belakang ikon tombol toggler */
+}
+
+/* Gaya saat tombol toggler dihover */
+.navbar-toggler:hover {
+  background-color: #2980b9; /* Warna latar belakang tombol toggler saat dihover */
+}

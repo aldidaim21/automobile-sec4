@@ -187,62 +187,6 @@ function update_contact($data)
 	return mysqli_affected_rows($conn);
 }
 
-// Function Offer Service
-
-function tambah_os($data)
-{
-	global $conn;
-
-	$id = htmlspecialchars($data["id"]);
-	$customer_id = htmlspecialchars($data["customer_id"]);
-	$contact_id = htmlspecialchars($data["contact_id"]);
-	$offer_description = htmlspecialchars($data["offer_description"]);
-	$service_catalog_id = htmlspecialchars($data["service_catalog_id"]);
-	$service_discount = htmlspecialchars($data["service_discount"]);
-	$offer_price = htmlspecialchars($data["offer_price"]);
-
-	$query = "INSERT INTO offer_services
-				VALUES
-				('$id','$customer_id', '$contact_id', '$offer_description','$service_catalog_id', '$service_discount', '$offer_price', current_timestamp())
-			 ";
-
-	mysqli_query($conn, $query);
-	return mysqli_affected_rows($conn);
-}
-
-function delete_os($id)
-{
-	global $conn;
-
-	mysqli_query($conn, "DELETE FROM offer_services WHERE id = $id");
-	return mysqli_affected_rows($conn);
-}
-
-function update_os($data)
-{
-	global $conn;
-
-	$id = $data["id"];
-	$customer_id = htmlspecialchars($data["customer_id"]);
-	$contact_id = htmlspecialchars($data["contact_id"]);
-	$offer_description = htmlspecialchars($data["offer_description"]);
-	$service_catalog_id = htmlspecialchars($data["service_catalog_id"]);
-	$service_discount = htmlspecialchars($data["service_discount"]);
-	$offer_price = htmlspecialchars($data["offer_price"]);
-
-	$query = "UPDATE contact SET
-                customer_id = '$customer_id', 
-				contact_id = '$contact_id', 
-            	offer_description = '$offer_description', 
-                service_catalog_id = '$service_catalog_id',
-				service_discount = $service_discount',
-				offer_price = $offer_price
-                WHERE id = $id";
-
-	mysqli_query($conn, $query);
-	return mysqli_affected_rows($conn);
-}
-
 // Fungsi Tambah task_catalog
 function task_catalog_tambah($data)
 {

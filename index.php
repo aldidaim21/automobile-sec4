@@ -14,7 +14,7 @@ $users1 = query("SELECT * FROM customer");
     <!--boostrap--->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!--css--->
-    <link rel="stylesheet" href="asset/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
 </head>
 
@@ -66,6 +66,7 @@ $users1 = query("SELECT * FROM customer");
 
                 <td><a href="update.php?id=<?= $row["id"]; ?>">UPDATE</td>
                 <td><a href="tambah_contact.php?id=<?= $row["id"]; ?>">Tambah detail contact</td>
+                <td><a href="tambah_offer_services.php?id=<?= $row["id"]; ?>">Tambah detail contact</td>
 
             </tr>
         <?php endforeach; ?>

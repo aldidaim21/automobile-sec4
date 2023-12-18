@@ -1,7 +1,11 @@
 <?php
 // Include file koneksi dan fungsi query
 include 'logic/functions.php';
+$id = $_GET["id"];
 $conn = mysqli_connect('localhost', 'root', '', 'section4');
+$cus = query("SELECT * FROM customer WHERE id = $id")[0];
+$con = query("SELECT * FROM contact WHERE id = $id")[0];
+$ser = query("SELECT * FROM service_catalog WHERE id = $id")[0];
 // Cek apakah form telah di-submit
 if (isset($_POST['submit'])) {
     // Panggil fungsi tambah
@@ -36,7 +40,7 @@ if (isset($_POST['submit'])) {
 
 
         <label for="customer_id">Customer ID:</label>
-        <input type="text" name="Customer ID" required><br>
+        <input type="text" name="Customer ID" required><?php echo $cus["id"] ?><br>
 
         <label for="contact_id">Contact ID:</label>
         <input type="text" name="contact_id" required><br>
