@@ -1,5 +1,5 @@
 <?php
-include 'logic/functions.php';
+include '../functions.php';
 // ambil data di URL
 $id = $_GET["id"];
 // query data layanan
@@ -12,14 +12,14 @@ if (isset($_POST["submit"])) {
         echo "
 			<script>
 			alert('Data berhasil diubah!');
-			document.location.href='layanan.php';
+			document.location.href='service.php';
 			</script>
 		";
     } else {
         echo "
             <script>
             alert('Data gagal diubah!');
-            document.location.href='layanan.php';
+            document.location.href='service.php';
             </script>
     ";
     }

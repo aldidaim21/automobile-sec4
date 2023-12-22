@@ -1,6 +1,6 @@
 <?php
 // Include file koneksi dan fungsi query
-include 'logic/functions.php';
+include '../functions.php';
 
 $conn = mysqli_connect('localhost', 'root', '', 'section4');
 
@@ -10,12 +10,12 @@ if (isset($_POST['submit'])) {
     if (tambah_layanan($_POST) > 0) {
         echo "<script>
 			alert('Data berhasil ditambahkan!');
-			document.location.href='layanan.php';
+			document.location.href='service.php';
 			</script>";
     } else {
         echo "<script>
 			alert('Data gagal ditambahkan!');
-			document.location.href='layanan.php';
+			document.location.href='service.php';
 			</script>";
     }
 }
@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
 <body>
 
     <h2>Tambah Data Layanan</h2>
-    <form action="tambah_layanan.php" method="post">
+    <form action="tambah_service.php" method="post">
         <label for="service_name">ID</label>
         <input type="text" name="id" required><br>
 

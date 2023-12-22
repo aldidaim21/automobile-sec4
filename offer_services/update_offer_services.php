@@ -1,5 +1,5 @@
 <?php
-include 'logic/functions.php';
+include '../functions.php';
 // ambil data di url
 $id = $_GET["id"];
 // query data customer 
@@ -12,7 +12,7 @@ if (isset($_POST["submit"])) {
         echo "
 			<script>
 			alert('Data berhasil diubah!');
-			document.location.href='offer_services.php';
+			document.location.href='ofs.php';
 			</script>
 
 	";
@@ -20,7 +20,7 @@ if (isset($_POST["submit"])) {
         echo "
             <script>
             alert('Data gagal diubah!');
-            document.location.href='offer_services.php';
+            document.location.href='ofs.php';
             </script>
     ";
     }

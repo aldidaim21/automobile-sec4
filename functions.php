@@ -49,15 +49,18 @@ function tambah($data)
 	return mysqli_affected_rows($conn);
 }
 
-function hapus($id)
+
+// hapus customer
+function hapus_cust($id)
 {
 	global $conn;
 	mysqli_query($conn, "DELETE FROM customer WHERE id = $id");
 	return mysqli_affected_rows($conn);
 }
 
+//update customers
 // Fungsi edit data
-function update($data)
+function update_cust($data)
 {
 	global $conn;
 
@@ -85,7 +88,7 @@ function update($data)
 	return mysqli_affected_rows($conn);
 }
 
-// Menambahkan layanan ke tabel service_catalog
+// tambah  service_catalog
 function tambah_layanan($data)
 {
 	global $conn;
@@ -104,6 +107,7 @@ function tambah_layanan($data)
 	mysqli_query($conn, $query);
 	return mysqli_affected_rows($conn);
 }
+
 
 // Menghapus layanan dari tabel service_catalog
 function hapus_layanan($id)
@@ -134,6 +138,7 @@ function update_layanan($data)
 	mysqli_query($conn, $query);
 	return mysqli_affected_rows($conn);
 }
+
 
 // Menambah fungsi untuk tabel contact
 function tambah_contact($data)
@@ -220,12 +225,11 @@ function task_catalog_delete($id)
 	return mysqli_affected_rows($conn);
 }
 
-// Fungsi edit data
-function task_catalog_update($data)
+// Fungsi update data Task Catalog
+function task_catalog_update($data, $id)
 {
 	global $conn;
 
-	$id = $data["id"];
 	$task_name = htmlspecialchars($data["task_name"]);
 	$service_catalog_id = htmlspecialchars($data["service_catalog_id"]);
 	$description = htmlspecialchars($data["description"]);
@@ -243,9 +247,111 @@ function task_catalog_update($data)
                 ref_interval = '$ref_interval',
                 ref_interval_min = '$ref_interval_min',
                 ref_interval_max = '$ref_interval_max',
-                describe = '$describe',
+                `describe` = '$describe',
                 task_price = '$task_price',
-                is_active = '$is_active',
+                is_active = '$is_active'
+                WHERE id = $id";
+
+	mysqli_query($conn, $query);
+	return mysqli_affected_rows($conn);
+}
+
+// Function Offer Service
+
+function tambah_os($data)
+{
+	global $conn;
+
+	$id = htmlspecialchars($data["id"]);
+	$customer_id = htmlspecialchars($data["customer_id"]);
+	$contact_id = htmlspecialchars($data["contact_id"]);
+	$offer_description = htmlspecialchars($data["offer_description"]);
+	$service_catalog_id = htmlspecialchars($data["service_catalog_id"]);
+	$service_discount = htmlspecialchars($data["service_discount"]);
+	$offer_price = htmlspecialchars($data["offer_price"]);
+
+	$query = "INSERT INTO offer_services
+				VALUES
+				('$id','$customer_id', '$contact_id', '$offer_description','$service_catalog_id', '$service_discount', '$offer_price', current_timestamp())
+			 ";
+
+	mysqli_query($conn, $query);
+	return mysqli_affected_rows($conn);
+}
+
+function delete_os($id)
+{
+	global $conn;
+
+	mysqli_query($conn, "DELETE FROM offer_services WHERE id = $id");
+	return mysqli_affected_rows($conn);
+}
+
+function update_os($data)
+{
+	global $conn;
+
+	$id = $data["id"];
+	$customer_id = htmlspecialchars($data["customer_id"]);
+	$contact_id = htmlspecialchars($data["contact_id"]);
+	$offer_description = htmlspecialchars($data["offer_description"]);
+	$service_catalog_id = htmlspecialchars($data["service_catalog_id"]);
+	$service_discount = htmlspecialchars($data["service_discount"]);
+	$offer_price = htmlspecialchars($data["offer_price"]);
+
+	$query = "UPDATE offer_services SET
+                customer_id = '$customer_id', 
+				contact_id = '$contact_id', 
+            	offer_description = '$offer_description', 
+                service_catalog_id = '$service_catalog_id',
+				service_discount = $service_discount',
+				offer_price = $offer_price
+                WHERE id = $id";
+
+	mysqli_query($conn, $query);
+	return mysqli_affected_rows($conn);
+}
+
+
+function tambah_ot($data)
+{
+	global $conn;
+
+	$id = htmlspecialchars($data["id"]);
+	$offer_id = htmlspecialchars($data["offer_id"]);
+	$task_catalog_id = htmlspecialchars($data["task_catalog_id"]);
+	$task_price = htmlspecialchars($data["task_price"]);
+
+	$query = "INSERT INTO offer_task
+				VALUES
+				('$id', '$offer_id','$task_catalog_id', '$task_price', current_timestamp())
+			 ";
+
+	mysqli_query($conn, $query);
+	return mysqli_affected_rows($conn);
+}
+
+function delete_ot($id)
+{
+	global $conn;
+
+	mysqli_query($conn, "DELETE FROM offer_task WHERE id = $id");
+	return mysqli_affected_rows($conn);
+}
+
+function update_ot($data)
+{
+	global $conn;
+
+	$id = $data["id"];
+	$offer_id = htmlspecialchars($data["offer_id"]);
+	$task_catalog_id = htmlspecialchars($data["task_catalog_id"]);
+	$task_price = htmlspecialchars($data["task_price"]);
+
+	$query = "UPDATE offer_task SET
+				offer_id = '$offer_id', 
+            	task_catalog_id = '$task_catalog_id', 
+				task_price = $task_price
                 WHERE id = $id";
 
 	mysqli_query($conn, $query);

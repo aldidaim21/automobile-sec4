@@ -1,11 +1,11 @@
 <?php
 
-include 'logic/functions.php';
+include '../functions.php';
 
 $id = $_GET["id"];
 
-if (hapus($id) > 0) {
-    echo "
+if (hapus_contact($id) > 0) {
+	echo "
 			<script>
 			alert('Data berhasil dihapus!');
 			document.location.href='index.php';
@@ -13,7 +13,7 @@ if (hapus($id) > 0) {
 
 	";
 } else {
-    echo "
+	echo "
 			<script>
 			alert('Data gagal dihapus!');
 			document.location.href='index.php';

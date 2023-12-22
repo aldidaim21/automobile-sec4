@@ -1,6 +1,6 @@
 <?php
 // Include file koneksi dan fungsi query
-include 'logic/functions.php';
+include '../functions.php';
 $conn = mysqli_connect('localhost', 'root', '', 'section4');
 // Cek apakah form telah di-submit
 if (isset($_POST['submit'])) {
@@ -8,12 +8,12 @@ if (isset($_POST['submit'])) {
     if (tambah($_POST) > 0) {
         echo "<script>
 			alert('Data berhasil ditambahkan!');
-			document.location.href='index.php';
+			document.location.href='../index.php';
 			</script>";
     } else {
         echo "<script>
 			alert('Data gagal ditambahkan!');
-			document.location.href='index.php';
+			document.location.href='../index.php';
 			</script>";
     }
 }
@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
 <body>
 
     <h2>Tambah Data Customer</h2>
-    <form action="tambah.php" method="post">
+    <form action="tambah_cust.php" method="post">
         <label for="first_name">id</label>
         <input type="text" name="id" required><br>
 

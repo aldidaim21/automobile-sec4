@@ -1,13 +1,13 @@
 <?php
 
-include 'logic/functions.php';
+include '../functions.php';
 
 $id = $_GET["id"];
 
 if (task_catalog_delete($id) > 0) {
 	echo "
 			<script>
-			alert('Data berhasil dihapus!');
+			alert('Data Berhasil Dihapus!');
 			document.location.href='task_catalog.php';
 			</script>
 
@@ -15,7 +15,7 @@ if (task_catalog_delete($id) > 0) {
 } else {
 	echo "
 			<script>
-			alert('Data gagal dihapus!');
+			alert('Data Gagal Dihapus!');
 			document.location.href='task_catalog.php';
 			</script>
 

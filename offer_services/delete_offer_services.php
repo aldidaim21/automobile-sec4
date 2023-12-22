@@ -5,18 +5,18 @@ include 'logic/functions.php';
 $id = $_GET["id"];
 
 if (delete_os($id) > 0) {
-    echo "
+	echo "
 			<script>
 			alert('Data berhasil dihapus!');
-			document.location.href='offer_services.php';
+			document.location.href='ofs.php';
 			</script>
 
 	";
 } else {
-    echo "
+	echo "
 			<script>
 			alert('Data gagal dihapus!');
-			document.location.href='offer_services.php';
+			document.location.href='ofs.php';
 			</script>
 
 	";

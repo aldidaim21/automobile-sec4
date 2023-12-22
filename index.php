@@ -1,6 +1,8 @@
 <?php
-require 'logic/functions.php';
+require 'functions.php';
 $users1 = query("SELECT * FROM customer");
+$cont = query("SELECT * FROM contact");
+$join = query("SELECT contact.contact_details , customer.first_name, customer.mobile FROM customer JOIN contact ON customer.id= contact.customer_id;");
 ?>
 
 
@@ -29,50 +31,69 @@ $users1 = query("SELECT * FROM customer");
                 <div class="navbar-nav">
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                     <a class="nav-link" href="#">Customer</a>
-                    <a class="nav-link" href="#">Task Catalog</a>
-                    <a class="nav-link" href="#">Service Catalog</a>
-                    <a class="nav-link" href="#">Offer Task</a>
+                    <a class="nav-link" href="task_catalog/task_catalog.php">Task Catalog</a>
+                    <a class="nav-link" href="service_catalog/service.php">Service Catalog</a>
+                    <a class="nav-link" href="offer_task/oft.php">Offer Task</a>
+                    <a class="nav-link" href="offer_services/ofs.php">Offer Service</a>
                 </div>
             </div>
         </div>
     </nav>
     <h2>Customer List</h2>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Company Name</th>
-            <th>Address</th>
-            <th>Mobile</th>
-            <th>Email</th>
-            <th>Detail</th>
-            <th>Delete</th>
-            <th>Update</th>
-            <th>Tambah detail contact</th>
-        </tr>
-        <?php foreach ($users1 as $row) : ?>
-            <tr>
-                <td><?php echo $row["id"]; ?></td>
-                <td><?php echo $row["first_name"]; ?></td>
-                <td><?php echo $row["last_name"]; ?></td>
-                <td><?php echo $row["company_name"]; ?></td>
-                <td><?php echo $row["address"]; ?></td>
-                <td><?php echo $row["mobile"]; ?></td>
-                <td><?php echo $row["email"]; ?></td>
-                <td><?php echo $row["detail"]; ?></td>
+    <div class="container mt-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($users1 as $row) : ?>
+                    <tr>
+                        <td><?= $row["id"]; ?></td>
+                        <td><?= $row["first_name"]; ?></td>
+                        <td><?= $row["last_name"]; ?></td>
+                        <td>
+                            <a href="customers/update_cust.php?id=<?= $row["id"]; ?>" class="btn btn-primary">Update</a>
+                            <a href="customers/delete_cust.php?id=<?php echo $row["id"] ?>" class="btn btn-danger" role="button" aria-pressed="true" onclick="return confirm('yakin');">Delete</a>
+                            <a href="customers/detail_cust.php?id=<?= $row["id"]; ?>" class="btn btn-dark">Detail Customers</a>
+                            <a href="detail_contact/tambah_contact.php?id=<?= $row["id"]; ?>" class="btn btn-warning">Add Detail Contact</a>
+                            <a href="detail_contact/update_contact.php?id=<?= $row["id"]; ?>" class="btn btn-warning">Update Detail Contact</a>
 
-                <td><a href="delete.php?id=<?php echo $row["id"] ?>" class="btn btn-primary btn-sm active btn-dark ml-5" role="button" aria-pressed="true" onclick="return confirm('yakin');">Delete</a></td>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
 
-                <td><a href="update.php?id=<?= $row["id"]; ?>">UPDATE</td>
-                <td><a href="tambah_contact.php?id=<?= $row["id"]; ?>">Tambah detail contact</td>
-                <td><a href="tambah_offer_services.php?id=<?= $row["id"]; ?>">Tambah detail contact</td>
-
-            </tr>
-        <?php endforeach; ?>
-    </table>
+    <div class="container mt-5">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Mobile Contact</th>
+                    <th>Detail Contact</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($join as $row) : ?>
+                    <tr>
+                        <td><?= $row["first_name"]; ?></td>
+                        <td><?= $row["mobile"]; ?></td>
+                        <td><?= $row["contact_details"]; ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
 </body>
+
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-<a href="tambah.php">TAMBAH DATA</a>
+
 
 </html>

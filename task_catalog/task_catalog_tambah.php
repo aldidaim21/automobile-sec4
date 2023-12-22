@@ -1,16 +1,25 @@
 <?php
 // Sertakan file koneksi dan fungsi query
-include 'logic/functions.php';
+include '../functions.php';
 $conn = mysqli_connect('localhost', 'root', '', 'section4');
+$ofs = query("SELECT * FROM offer_services WHERE id = $id")[0];
 
 // Periksa apakah formulir telah di-submit
 if (isset($_POST['submit'])) {
     // Panggil fungsi tambah
     if (task_catalog_tambah($_POST) > 0) {
         echo "<script>
-			alert('Data berhasil ditambahkan!');
+			alert('Data Berhasil Ditambahkan!');
 			document.location.href='task_catalog.php';
 			</script>";
+    } else {
+        echo "
+			<script>
+			alert('Data Gagal Ditambahkan!');
+			document.location.href='task_catalog.php';
+			</script>
+
+	";
     }
 }
 ?>
@@ -31,10 +40,10 @@ if (isset($_POST['submit'])) {
         <input type="text" name="id" required><br>
 
         <label for="task_name">Nama Tugas:</label>
-        <input type="text" name="nama_tugas" required><br>
+        <input type="text" name="task_name" required><br>
 
         <label for="service_catalog_id">ID Katalog Layanan:</label>
-        <input type="text" name="service_catalog_id" required><br>
+        <input type="text" name="service_catalog_id" required><?php echo $ofs["id"] ?><br>
 
         <label for="description">Deskripsi:</label>
         <textarea type="text" name="description" required></textarea><br>

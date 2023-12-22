@@ -1,5 +1,5 @@
 <?php
-include 'logic/functions.php';
+include '../functions.php';
 // ambil data di url
 $id = $_GET["id"];
 // query data customer 
@@ -8,7 +8,7 @@ $cust = query("SELECT * FROM customer WHERE id = $id")[0];
 // cek apakah tombol submit 
 if (isset($_POST["submit"])) {
 
-    if (update($_POST) > 0) {
+    if (update_cust($_POST) > 0) {
         echo "
 			<script>
 			alert('Data berhasil diubah!');
