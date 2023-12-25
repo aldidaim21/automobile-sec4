@@ -4,8 +4,8 @@ include '../functions.php';
 
 $id = $_GET["id"];
 
-if (delete_os($id) > 0) {
-    echo "
+if (delete_ot($id) > 0) {
+	echo "
 			<script>
 			alert('Data Berhasil Dihapus!');
 			document.location.href='oft.php';
@@ -13,7 +13,7 @@ if (delete_os($id) > 0) {
 
 	";
 } else {
-    echo "
+	echo "
 			<script>
 			alert('Data Gagal Dihapus!');
 			document.location.href='oft.php';

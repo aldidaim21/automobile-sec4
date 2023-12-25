@@ -39,8 +39,10 @@ if (isset($_POST['submit'])) {
 <body>
 
     <form action="tambah_contact.php?id=<?= $id; ?>" method="post">
+
         <!-- Hapus input untuk ID -->
-        <input type="hidden" name="id" value="<?= $id; ?>">
+        <label for="contact_type_id">ID Contact:</label>
+        <input type="text" name="id" value="<?= $id; ?>" readonly><br>
 
         <label for="contact_type_id">Contact Type ID:</label>
         <select name="contact_type_id">
@@ -50,7 +52,7 @@ if (isset($_POST['submit'])) {
         </select><br>
 
         <label for="customer_id">Customer ID:</label>
-        <input type="hidden" name="customer_id" value="<?= $cust["id"]; ?>" readonly><br>
+        <input type="text" name="customer_id" value="<?= $cust["id"]; ?>" readonly><br>
 
         <label for="schedule_id">Schedule ID:</label>
         <select name="schedule_id">

@@ -4,13 +4,12 @@ include '../functions.php';
 
 // Change the database connection details
 $conn = mysqli_connect('localhost', 'root', '', 'section4');
-$ofs = query("SELECT * FROM offer_services WHERE id = $id")[0];
-
 // Ambil ID dari parameter GET
 $id = $_GET["id"];
 
 // Query data Task Catalog
 $taskCatalog = query("SELECT * FROM task_catalog WHERE id = $id")[0];
+$det = query("SELECT * FROM service_catalog");
 
 // Cek apakah form telah di-submit
 if (isset($_POST['submit'])) {
@@ -48,7 +47,15 @@ if (isset($_POST['submit'])) {
         <input type="text" name="task_name" value="<?= $taskCatalog["task_name"]; ?>" required><br>
 
         <label for="service_catalog_id">Service Catalog ID:</label>
-        <input type="text" name="service_catalog_id" value="<?= $taskCatalog["service_catalog_id"]; ?>" <?php echo $ofs["id"] ?>required><br>
+        <select name="service_catalog_id" id="service_catalog_id">
+            <?php
+            foreach ($det as $row) {
+                $selected = ($row['id'] == $taskCatalog["service_catalog_id"]) ? 'selected' : '';
+                echo "<option value='{$row['id']}' $selected>{$row['id']}</option>";
+            }
+            ?>
+        </select><br>
+
 
         <label for="description">Description:</label>
         <textarea name="description"><?= $taskCatalog["description"]; ?></textarea><br>

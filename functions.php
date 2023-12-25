@@ -23,6 +23,25 @@ function query($query)
 }
 
 
+// Fungsi untuk menghitung jumlah data dalam tabel customers
+function countData($table)
+{
+	global $conn;
+
+	// Query untuk menghitung jumlah data
+	$query = "SELECT COUNT(*) AS total FROM $table";
+	$result = mysqli_query($conn, $query);
+
+	// Periksa apakah query berhasil dijalankan
+	if (!$result) {
+		die("Error: " . mysqli_error($conn));
+	}
+
+	// Ambil hasil perhitungan
+	$row = mysqli_fetch_assoc($result);
+	return $row['total'];
+}
+
 // Fungsi Tambah customers
 function tambah($data)
 {
@@ -50,13 +69,47 @@ function tambah($data)
 }
 
 
-// hapus customer
 function hapus_cust($id)
 {
 	global $conn;
-	mysqli_query($conn, "DELETE FROM customer WHERE id = $id");
-	return mysqli_affected_rows($conn);
+
+	// Mulai transaksi
+	mysqli_begin_transaction($conn);
+
+	try {
+		// Hapus data dari tabel offer_task terlebih dahulu
+		$queryOfferTask = "DELETE FROM offer_task WHERE offer_id IN (SELECT id FROM offer_services WHERE customer_id = $id)";
+		mysqli_query($conn, $queryOfferTask);
+
+		// Hapus data dari tabel offer_services
+		$queryOfferServices = "DELETE FROM offer_services WHERE customer_id = $id";
+		mysqli_query($conn, $queryOfferServices);
+
+		// Hapus data dari tabel contact
+		$queryContact = "DELETE FROM contact WHERE customer_id = $id";
+		mysqli_query($conn, $queryContact);
+
+		// Hapus data dari tabel customer
+		$queryCustomer = "DELETE FROM customer WHERE id = $id";
+		mysqli_query($conn, $queryCustomer);
+
+		// Commit transaksi
+		mysqli_commit($conn);
+
+		return true;
+	} catch (Exception $e) {
+		// Rollback transaksi jika terjadi kesalahan
+		mysqli_rollback($conn);
+
+		// Tampilkan pesan kesalahan jika diperlukan
+		echo "Error: " . $e->getMessage();
+
+		return false;
+	}
 }
+
+
+
 
 //update customers
 // Fungsi edit data
@@ -208,10 +261,9 @@ function task_catalog_tambah($data)
 	$task_price = htmlspecialchars($data["task_price"]);
 	$is_active = htmlspecialchars($data["is_active"]);
 
-	$query = "INSERT INTO task_catalog
-				VALUES
-				('$id', '$task_name', '$service_catalog_id', '$description', '$ref_interval', '$ref_interval_min', '$ref_interval_max', '$describe', '$task_price', '$is_active')
-			 ";
+	$query = "INSERT INTO task_catalog VALUES
+                ('$id','$task_name', '$service_catalog_id', '$description', '$ref_interval', '$ref_interval_min', '$ref_interval_max', '$describe', '$task_price', '$is_active')
+             ";
 
 	mysqli_query($conn, $query);
 	return mysqli_affected_rows($conn);
@@ -256,6 +308,7 @@ function task_catalog_update($data, $id)
 	return mysqli_affected_rows($conn);
 }
 
+
 // Function Offer Service
 
 function tambah_os($data)
@@ -282,7 +335,6 @@ function tambah_os($data)
 function delete_os($id)
 {
 	global $conn;
-
 	mysqli_query($conn, "DELETE FROM offer_services WHERE id = $id");
 	return mysqli_affected_rows($conn);
 }
@@ -301,16 +353,17 @@ function update_os($data)
 
 	$query = "UPDATE offer_services SET
                 customer_id = '$customer_id', 
-				contact_id = '$contact_id', 
-            	offer_description = '$offer_description', 
+                contact_id = '$contact_id', 
+                offer_description = '$offer_description', 
                 service_catalog_id = '$service_catalog_id',
-				service_discount = $service_discount',
-				offer_price = $offer_price
+                service_discount = '$service_discount',
+                offer_price = '$offer_price'
                 WHERE id = $id";
 
 	mysqli_query($conn, $query);
 	return mysqli_affected_rows($conn);
 }
+
 
 
 function tambah_ot($data)

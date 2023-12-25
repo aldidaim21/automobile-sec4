@@ -1,6 +1,6 @@
 <?php
 
-include 'logic/functions.php';
+include '../functions.php';
 
 $id = $_GET["id"];
 
@@ -8,7 +8,7 @@ if (delete_os($id) > 0) {
 	echo "
 			<script>
 			alert('Data berhasil dihapus!');
-			document.location.href='ofs.php';
+			document.location.href='../index.php';
 			</script>
 
 	";
@@ -16,7 +16,7 @@ if (delete_os($id) > 0) {
 	echo "
 			<script>
 			alert('Data gagal dihapus!');
-			document.location.href='ofs.php';
+			document.location.href='../index.php';
 			</script>
 
 	";

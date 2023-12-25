@@ -1,10 +1,9 @@
 <?php
 // Include file koneksi dan fungsi query
 include '../functions.php';
-$id = $_GET["id"];
 $conn = mysqli_connect('localhost', 'root', '', 'section4');
-$ofs = query("SELECT * FROM offer_services WHERE id = $id")[0];
-$tsc = query("SELECT * FROM task_catalog WHERE id = $id")[0];
+$ofs = query("SELECT * FROM offer_services");
+$tsc = query("SELECT * FROM task_catalog");
 // Cek apakah form telah di-submit
 if (isset($_POST['submit'])) {
     // Panggil fungsi tambah
@@ -27,22 +26,30 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Data Offer & Services</title>
+    <title>Tambah Data Task</title>
 </head>
 
 <body>
 
-    <h2>Tambah Data Offer Services</h2>
+    <h2>Tambah Data Offer Task</h2>
     <form action="tambah_oft.php" method="post">
         <label for="id">id</label>
         <input type="text" name="id" required><br>
 
-
-        <label for="offer_id">Offer ID:</label>
-        <input type="text" name="Offer ID" required><?php echo $ofs["id"] ?><br>
+        <label for="offer_id">Offer Serbice ID:</label>
+        <select name="offer_id" required>
+            <?php foreach ($ofs as $row) : ?>
+                <option value="<?= $row['id']; ?>"><?= $row['id']; ?></option>
+            <?php endforeach ?>
+        </select><br>
 
         <label for="task_catalog_id">Task Catalog ID:</label>
-        <input type="text" name="task_catalog_id" required><?php echo $tsc["id"] ?><br>
+        <select name="task_catalog_id" required>
+            <?php foreach ($tsc as $row2) : ?>
+                <option value="<?= $row2['id']; ?>"><?= $row2['id']; ?></option>
+            <?php endforeach ?>
+        </select><br>
+
 
         <label for="task_price">Task Price:</label>
         <input type="text" name="task_price" required><br>
