@@ -26,11 +26,10 @@ $offers = query("SELECT * FROM offer_task");
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="../index.php">Customer</a>
+                    <a class="nav-link" aria-current="page" href="../index.php">Home</a>
                     <a class="nav-link" href="../task_catalog/task_catalog.php">Task Catalog</a>
                     <a class="nav-link" href="../service_catalog/service.php">Service Catalog</a>
-                    <a class="nav-link" href="../offer_services/ofs.php">Offer Service</a>
+                    <a class="nav-link active" href="oft.php">Offer Task</a>
                 </div>
             </div>
         </div>

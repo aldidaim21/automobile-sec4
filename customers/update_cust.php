@@ -12,7 +12,7 @@ if (isset($_POST["submit"])) {
         echo "
 			<script>
 			alert('Data berhasil diubah!');
-			document.location.href='index.php';
+			document.location.href='../index.php';
 			</script>
 
 	";
@@ -20,7 +20,7 @@ if (isset($_POST["submit"])) {
         echo "
             <script>
             alert('Data gagal diubah!');
-            document.location.href='index.php';
+            document.location.href='../index.php';
             </script>
     ";
     }

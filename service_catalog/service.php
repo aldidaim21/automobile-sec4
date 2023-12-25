@@ -11,11 +11,11 @@ $services = query("SELECT * FROM service_catalog");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Service and Offers </title>
+    <title>Service Catalog </title>
     <!--boostrap--->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!--css--->
-    <link rel="stylesheet" href="../css/style2.css">
+    <link rel="stylesheet" href="../css/style.css">
 
 </head>
 
@@ -27,13 +27,14 @@ $services = query("SELECT * FROM service_catalog");
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="../index.php">Customer</a>
+                    <a class="nav-link" aria-current="page" href="../index.php">Home</a>
                     <a class="nav-link" href="../task_catalog/task_catalog.php">Task Catalog</a>
-                    <a class="nav-link" href="../offer_services/ofs.php">Offer Service</a>
+                    <a class="nav-link active" href="service.php">Service Catalog</a>
                     <a class="nav-link" href="../offer_task/oft.php">Offer Task</a>
                 </div>
+
             </div>
         </div>
     </nav>
