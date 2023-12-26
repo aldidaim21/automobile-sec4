@@ -79,7 +79,7 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="mb-3">
-                <input type="submit" name="submit" value="Update" class="btn btn-primary">
+                <input type="submit" name="submit" value="Konfirmasi Perubahan Data" class="btn btn-success">
             </div>
         </form>
     </div>

@@ -91,7 +91,7 @@ if (isset($_POST["submit"])) {
             </div>
 
             <div class="form-group text-center">
-                <button type="submit" name="submit" class="btn btn-success">Submit</button>
+                <button type="submit" name="submit" class="btn btn-success">Konfirmasi Perubahan Data</button>
             </div>
         </form>
     </div>

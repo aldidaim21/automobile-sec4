@@ -73,7 +73,7 @@ if (isset($_POST['submit'])) {
                 <input type="text" name="contact_details" value="<?= $det["contact_details"]; ?>" required class="form-control">
             </div>
 
-            <input type="submit" name="submit" value="Update" class="btn btn-primary">
+            <input type="submit" name="submit" value="Konfirmasi Perubahan Data" class="btn btn-success">
         </form>
     </div>
 </body>

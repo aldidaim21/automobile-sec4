@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
                 <input type="tel" class="form-control" placeholder="Add Your Contact Details " aria-label="Addres" name="contact_details">
             </div>
 
-            <input type="submit" name="submit" value="Tambah">
+            <input type="submit" name="submit" value="Konfirmasi Tambah Data" class="btn btn-success">
         </form>
     </div>
 </body>

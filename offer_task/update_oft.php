@@ -65,7 +65,7 @@ if (isset($_POST["submit"])) {
         <label for="task_price">Task Price:</label>
         <input type="text" name="task_price" value="<?= $oft["task_price"]; ?>">
         <div class="form-group  center">
-            <button type="submit" name="submit">Submit</button>
+            <button type="submit" name="submit">Konfirmasi Perubahan Data</button>
         </div>
 
 </head>

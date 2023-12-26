@@ -54,13 +54,13 @@ if (isset($_POST['submit'])) {
             <label for="id" class="form-label">ID</label>
             <input type="text" name="id" required class="form-control"><br>
 
-            <label for="customer_id" class="form-label">Customer ID:</label>
+            <label for="customer_id" class="form-label">Customer ID</label>
             <input type="text" name="customer_id" value="<?= $cust["id"]; ?>" readonly class="form-control"><br>
 
-            <label for="contact_id" class="form-label">Contact ID:</label>
+            <label for="contact_id" class="form-label">Contact ID</label>
             <input type="text" name="contact_id" value="<?= $conts["id"]; ?>" readonly class="form-control"><br>
 
-            <label for="offer_description" class="form-label">Offer Description:</label>
+            <label for="offer_description" class="form-label">Offer Description</label>
             <input type="text" name="offer_description" required class="form-control"><br>
 
             <label for="service_catalog_id" class="form-label">Service Catalog</label>
@@ -70,13 +70,13 @@ if (isset($_POST['submit'])) {
                 <?php endforeach ?>
             </select><br>
 
-            <label for="service_discount" class="form-label">Service Discount:</label>
+            <label for="service_discount" class="form-label">Service Discount</label>
             <input type="text" name="service_discount" required class="form-control"><br>
 
-            <label for="offer_price" class="form-label">Offer Price:</label>
+            <label for="offer_price" class="form-label">Offer Price</label>
             <input type="text" name="offer_price" required class="form-control"><br>
 
-            <input type="submit" name="submit" value="Tambah" class="btn btn-primary">
+            <input type="submit" name="submit" value="Konfirmasi Tambah Data" class="btn btn-success">
         </form>
     </div>
 </body>
