@@ -101,7 +101,7 @@
         <div class="container">
 
             <!-- list data  -->
-            <div class="data">
+            <div class="data ">
                 <div class="row">
 
                     <!-- Customer Box -->
@@ -171,7 +171,7 @@
                                 <td><?= $row["last_name"]; ?></td>
                                 <td>
                                     <a href="customers/update_cust.php?id=<?= $row["id"]; ?>" class="btn btn-sm btn-primary">Update</a>
-                                    <a href="customers/delete_cust.php?id=<?php echo $row["id"] ?>" class="btn btn-sm btn-danger" role="button" aria-pressed="true" onclick="return confirm('yakin');">Delete</a>
+                                    <a href="customers/delete_cust.php?id=<?php echo $row["id"] ?>" class="btn btn-sm btn-danger" role="button" aria-pressed="true" onclick="return confirm('Apa Anda yakin untuk menghapus data customer?');">Delete</a>
                                     <a href="customers/detail_cust.php?id=<?= $row["id"]; ?>" class="btn btn-sm btn-dark">Detail Customers</a>
                                 </td>
                                 <td>

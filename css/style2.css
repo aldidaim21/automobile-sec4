@@ -9,6 +9,10 @@
   font-size: 32px;
 }
 
+.navbar-nav {
+  font-weight: 450;
+}
+
 /* jumbotron */
 .jumbotron {
   background-image: url(../img/jumbotron.jpg);
@@ -87,6 +91,7 @@
   font-weight: 200;
   margin: 25px 0;
 }
+
 /* utility */
 .tombol {
   text-transform: uppercase;
@@ -105,6 +110,11 @@
 
 .jumbotron .display-4 span {
   font-weight: 500;
+}
+
+/* contact box */
+.container .data {
+  margin-top: 100px;
 }
 
 /* customer list */
@@ -172,6 +182,7 @@
   margin-top: 100px;
   margin-bottom: 30px;
 }
+
 
 /* Dektop Version */
 @media (min-width: 992px) {
