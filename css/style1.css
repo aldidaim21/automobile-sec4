@@ -5,3 +5,7 @@
 .judul .teks {
   margin-top: 350px;
 }
+
+.navbar-brand {
+  font-size: 100px;
+}

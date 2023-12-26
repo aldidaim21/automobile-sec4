@@ -34,45 +34,9 @@ if (isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <title>Mengubah Data offer task</title>
-
-
-    <form action="update_oft.php?id=<?= $id; ?>" method="POST" enctype="multipart/form-data">
-
-        <input type="hidden" name="id" value="<?= $oft["id"]; ?>">
-
-        <label for="offer_id">Offer Serbice ID:</label>
-        <select name="offer_id" id="offer_id">
-            <?php
-            foreach ($ofs as $row) {
-                $selected = ($row['id'] == $oft["offer_id"]) ? 'selected' : '';
-                echo "<option value='{$row['id']}' $selected>{$row['id']}</option>";
-            }
-            ?>
-        </select><br>
-
-        <label for="task_catalog_id">Task Catalog ID:</label>
-        <select name="task_catalog_id" id="task_catalog_id">
-            <?php
-            foreach ($tsc as $row) {
-                $selected = ($row['id'] == $oft["task_catalog_id"]) ? 'selected' : '';
-                echo "<option value='{$row['id']}' $selected>{$row['id']}</option>";
-            }
-            ?>
-        </select><br>
-
-        <label for="task_price">Task Price:</label>
-        <input type="text" name="task_price" value="<?= $oft["task_price"]; ?>">
-        <div class="form-group  center">
-            <button type="submit" name="submit">Konfirmasi Perubahan Data</button>
-        </div>
-
-=======
     <title>Mengubah Data Offer Task</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
->>>>>>> 7b7c401d0262e96704407699341d35c5ac783550
 </head>
 
 <body>
@@ -82,7 +46,7 @@ if (isset($_POST["submit"])) {
             <input type="hidden" name="id" value="<?= $oft["id"]; ?>">
 
             <div class="mb-3">
-                <label for="offer_id" class="form-label">Offer Service ID:</label>
+                <label for="offer_id" class="form-label">Offer Service ID</label>
                 <select name="offer_id" id="offer_id" class="form-select">
                     <?php
                     foreach ($ofs as $row) {
@@ -94,7 +58,7 @@ if (isset($_POST["submit"])) {
             </div>
 
             <div class="mb-3">
-                <label for="task_catalog_id" class="form-label">Task Catalog ID:</label>
+                <label for="task_catalog_id" class="form-label">Task Catalog ID</label>
                 <select name="task_catalog_id" id="task_catalog_id" class="form-select">
                     <?php
                     foreach ($tsc as $row) {
@@ -106,12 +70,12 @@ if (isset($_POST["submit"])) {
             </div>
 
             <div class="mb-3">
-                <label for="task_price" class="form-label">Task Price:</label>
+                <label for="task_price" class="form-label">Task Price</label>
                 <input type="text" name="task_price" value="<?= $oft["task_price"]; ?>" class="form-control">
             </div>
 
             <div class="form-group center">
-                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" name="submit" class="btn btn-success">Konfirmasi Perubahan Data</button>
             </div>
         </form>
     </div>

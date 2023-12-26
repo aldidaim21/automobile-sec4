@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="mb-3">
-                <label for="offer_id" class="form-label">Offer Service ID:</label>
+                <label for="offer_id" class="form-label">Offer Service ID</label>
                 <select name="offer_id" required class="form-select">
                     <?php foreach ($ofs as $row) : ?>
                         <option value="<?= $row['id']; ?>"><?= $row['id']; ?></option>
@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="mb-3">
-                <label for="task_catalog_id" class="form-label">Task Catalog ID:</label>
+                <label for="task_catalog_id" class="form-label">Task Catalog ID</label>
                 <select name="task_catalog_id" required class="form-select">
                     <?php foreach ($tsc as $row2) : ?>
                         <option value="<?= $row2['id']; ?>"><?= $row2['id']; ?></option>
@@ -58,28 +58,21 @@ if (isset($_POST['submit'])) {
                 </select>
             </div>
 
-<<<<<<< HEAD
-        <label for="task_catalog_id">Task Catalog ID:</label>
-        <select name="task_catalog_id" required>
-            <?php foreach ($tsc as $row2) : ?>
-                <option value="<?= $row2['id']; ?>"><?= $row2['id']; ?></option>
-            <?php endforeach ?>
-        </select><br>
+            <label for="task_catalog_id">Task Catalog ID</label>
+            <select name="task_catalog_id" required>
+                <?php foreach ($tsc as $row2) : ?>
+                    <option value="<?= $row2['id']; ?>"><?= $row2['id']; ?></option>
+                <?php endforeach ?>
+            </select><br>
 
 
-        <label for="task_price">Task Price:</label>
-        <input type="text" name="task_price" required><br>
+            <label for="task_price">Task Price:</label>
+            <input type="text" name="task_price" required><br>
 
-        <input type="submit" name="submit" value=" Konfirmasi Tambah Data" class="btn btn-success">
-    </form>
-=======
-            <div class="mb-3">
-                <label for="task_price" class="form-label">Task Price:</label>
-                <input type="text" name="task_price" required class="form-control">
-            </div>
->>>>>>> 7b7c401d0262e96704407699341d35c5ac783550
+            <input type="submit" name="submit" value=" Konfirmasi Tambah Data" class="btn btn-success">
+        </form>
 
-            <input type="submit" name="submit" value="Tambah" class="btn btn-primary">
+        <input type="submit" name="submit" value="Tambah" class="btn btn-primary">
         </form>
     </div>
 </body>

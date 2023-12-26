@@ -1,0 +1,14 @@
+.navbar {
+    position: relative;
+    z-index: 1;
+}
+
+.navbar-nav {
+    font-style: bold;
+    font-size: 450px;
+}
+
+.navbar-brand span {
+    color: crimson;
+}
+
