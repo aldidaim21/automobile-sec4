@@ -55,9 +55,9 @@ $services = query("SELECT * FROM service_catalog");
                 <?php foreach ($services as $row) : ?>
                     <?php
                     if ($row["is_active"] == 1) {
-                        $hasil = "servis aktif";
+                        $hasil = "Servis Aktif";
                     } else {
-                        $hasil = "servis tidak aktif";
+                        $hasil = "Servis Tidak Aktif";
                     }
                     ?>
                     <tr>
