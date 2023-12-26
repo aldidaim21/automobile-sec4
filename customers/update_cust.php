@@ -34,22 +34,71 @@ if (isset($_POST["submit"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mengubah Data</title>
-    <form action="" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="<?= $cust["id"]; ?>">
-        <input type="text" name="first_name" value="<?= $cust["first_name"]; ?>">
-        <input type="text" name="last_name" value="<?= $cust["last_name"]; ?>">
-        <input type="text" name="company_name" value="<?= $cust["company_name"]; ?>">
-        <input type="text" name="address" value="<?= $cust["address"]; ?>">
-        <input type="text" name="mobile" value="<?= $cust["mobile"]; ?>">
-        <input type="text" name="email" value="<?= $cust["email"]; ?>">
-        <input type="text" name="detail" value="<?= $cust["detail"]; ?>">
-        <div class="form-group  center">
-            <button type="submit" name="submit">Submit</button>
-        </div>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style1.css">
 
 </head>
 
 <body>
+
+    <div class="container judul">
+        <h2 class="judul teks">Mengubah Data Customer</h2>
+    </div>
+
+    <div class="container">
+        <form action="" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="id" class="form-label">ID</label>
+                <input type="text" name="id" class="form-control" value="<?= $cust["id"]; ?>" readonly>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="mb-3">
+                        <label for="first_name" class="form-label">First Name</label>
+                        <input type="text" name="first_name" class="form-control" value="<?= $cust["first_name"]; ?>">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="mb-3">
+                        <label for="last_name" class="form-label">Last Name</label>
+                        <input type="text" name="last_name" class="form-control" value="<?= $cust["last_name"]; ?>">
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="company_name" class="form-label">Company</label>
+                <input type="text" name="company_name" class="form-control" value="<?= $cust["company_name"]; ?>">
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" name="address" class="form-control" value="<?= $cust["address"]; ?>">
+            </div>
+            <div class="mb-3">
+                <label for="mobile" class="form-label">Mobile</label>
+                <input type="text" name="mobile" class="form-control" value="<?= $cust["mobile"]; ?>">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" name="email" class="form-control" value="<?= $cust["email"]; ?>">
+            </div>
+            <div class="mb-3">
+                <label for="detail" class="form-label">Detail</label>
+                <input type="text" name="detail" class="form-control" value="<?= $cust["detail"]; ?>">
+            </div>
+
+            <div class="form-group text-center">
+                <button type="submit" name="submit" class="btn btn-success">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js (required for Bootstrap) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
 </body>
 

@@ -1,3 +1,7 @@
-.btn .btn-light :hover{
-background-color: blueviolet;
+.container .judul {
+  text-indent: 50%;
+}
+
+.judul .teks {
+  margin-top: 350px;
 }
