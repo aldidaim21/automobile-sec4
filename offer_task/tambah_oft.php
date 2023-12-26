@@ -26,23 +26,39 @@ if (isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Data Task</title>
+    <title>Tambah Data Offer Task</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
+    <div class="container">
+        <h2>Tambah Data Offer Task</h2>
+        <form action="tambah_oft.php" method="post">
+            <div class="mb-3">
+                <label for="id" class="form-label">ID</label>
+                <input type="text" name="id" required class="form-control">
+            </div>
 
-    <h2>Tambah Data Offer Task</h2>
-    <form action="tambah_oft.php" method="post">
-        <label for="id">id</label>
-        <input type="text" name="id" required><br>
+            <div class="mb-3">
+                <label for="offer_id" class="form-label">Offer Service ID:</label>
+                <select name="offer_id" required class="form-select">
+                    <?php foreach ($ofs as $row) : ?>
+                        <option value="<?= $row['id']; ?>"><?= $row['id']; ?></option>
+                    <?php endforeach ?>
+                </select>
+            </div>
 
-        <label for="offer_id">Offer Serbice ID:</label>
-        <select name="offer_id" required>
-            <?php foreach ($ofs as $row) : ?>
-                <option value="<?= $row['id']; ?>"><?= $row['id']; ?></option>
-            <?php endforeach ?>
-        </select><br>
+            <div class="mb-3">
+                <label for="task_catalog_id" class="form-label">Task Catalog ID:</label>
+                <select name="task_catalog_id" required class="form-select">
+                    <?php foreach ($tsc as $row2) : ?>
+                        <option value="<?= $row2['id']; ?>"><?= $row2['id']; ?></option>
+                    <?php endforeach ?>
+                </select>
+            </div>
 
+<<<<<<< HEAD
         <label for="task_catalog_id">Task Catalog ID:</label>
         <select name="task_catalog_id" required>
             <?php foreach ($tsc as $row2) : ?>
@@ -56,7 +72,16 @@ if (isset($_POST['submit'])) {
 
         <input type="submit" name="submit" value=" Konfirmasi Tambah Data" class="btn btn-success">
     </form>
+=======
+            <div class="mb-3">
+                <label for="task_price" class="form-label">Task Price:</label>
+                <input type="text" name="task_price" required class="form-control">
+            </div>
+>>>>>>> 7b7c401d0262e96704407699341d35c5ac783550
 
+            <input type="submit" name="submit" value="Tambah" class="btn btn-primary">
+        </form>
+    </div>
 </body>
 
 </html>

@@ -47,6 +47,8 @@ if (isset($_POST["submit"])) {
         <h2>Mengubah Data Layanan</h2> <br>
 
         <form action="" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?= $id; ?>">
+
             <div class="mb-3">
                 <label for="service_name">Service Name:</label>
                 <input type="text" name="service_name" class="form-control" value="<?= $layanan["service_name"]; ?>" required>
