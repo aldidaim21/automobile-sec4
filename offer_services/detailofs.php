@@ -21,23 +21,6 @@ $users1 = query("SELECT * FROM customer WHERE id =$usd  ")[0];
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Automobile</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    <a class="nav-link" href="../index.php">Customer</a>
-                    <a class="nav-link" href="../task_catalog/task_catalog.php">Task Catalog</a>
-                    <a class="nav-link" href="../service_catalog/service.php">Service Catalog</a>
-                    <a class="nav-link" href="../offer_task/oft.php">Offer Task</a>
-                </div>
-            </div>
-        </div>
-    </nav>
     <div class="container mt-5">
         <h1 class="mb-4">Detail Offer Services</h1>
         <h2>ID: <span class="text-muted"><?= $offer["id"]; ?></span></h2>
