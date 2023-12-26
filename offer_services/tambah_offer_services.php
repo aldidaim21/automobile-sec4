@@ -43,40 +43,42 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Data Offer & Services</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
+    <div class="container">
+        <h2>Tambah Data Offer Services</h2>
+        <form action="tambah_offer_services.php?id=<?= $id; ?>" method="post">
+            <label for="id" class="form-label">ID</label>
+            <input type="text" name="id" required class="form-control"><br>
 
-    <h2>Tambah Data Offer Services</h2>
-    <form action="tambah_offer_services.php?id=<?= $id; ?>" method="post">
-        <label for="id">ID</label>
-        <input type="text" name="id" required><br>
+            <label for="customer_id" class="form-label">Customer ID:</label>
+            <input type="text" name="customer_id" value="<?= $cust["id"]; ?>" readonly class="form-control"><br>
 
-        <label for="customer_id">Customer ID:</label>
-        <input type="text" name="customer_id" value="<?= $cust["id"]; ?>" readonly><br>
+            <label for="contact_id" class="form-label">Contact ID:</label>
+            <input type="text" name="contact_id" value="<?= $conts["id"]; ?>" readonly class="form-control"><br>
 
-        <label for="contact_id">Contact ID:</label>
-        <input type="text" name="contact_id" value="<?= $conts["id"]; ?>" readonly><br>
+            <label for="offer_description" class="form-label">Offer Description:</label>
+            <input type="text" name="offer_description" required class="form-control"><br>
 
-        <label for="offer_description">Offer Description:</label>
-        <input type="text" name="offer_description" required><br>
+            <label for="service_catalog_id" class="form-label">Service Catalog</label>
+            <select name="service_catalog_id" required class="form-select">
+                <?php foreach ($sc as $row2) : ?>
+                    <option value="<?= $row2['id']; ?>"><?= $row2['id']; ?></option>
+                <?php endforeach ?>
+            </select><br>
 
-        <label for="service_catalog_id">Service Catalog</label>
-        <select name="service_catalog_id" required>
-            <?php foreach ($sc as $row2) : ?>
-                <option value="<?= $row2['id']; ?>"><?= $row2['id']; ?></option>
-            <?php endforeach ?>
-        </select><br>
+            <label for="service_discount" class="form-label">Service Discount:</label>
+            <input type="text" name="service_discount" required class="form-control"><br>
 
-        <label for="service_discount">Service Discount:</label>
-        <input type="text" name="service_discount" required><br>
+            <label for="offer_price" class="form-label">Offer Price:</label>
+            <input type="text" name="offer_price" required class="form-control"><br>
 
-        <label for="offer_price">Offer Price:</label>
-        <input type="text" name="offer_price" required><br>
-
-        <input type="submit" name="submit" value="Tambah">
-    </form>
-
+            <input type="submit" name="submit" value="Tambah" class="btn btn-primary">
+        </form>
+    </div>
 </body>
 
 </html>

@@ -29,44 +29,60 @@ if (isset($_POST['submit'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Data</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
 
-    <h2>Update Data Offer Services</h2>
-    <form action="update_offer_services.php?id=<?= $id; ?>" method="POST">
-        <input type="hidden" name="id" value="<?= $ofs["id"]; ?>">
+    <div class="container">
+        <h2>Update Data Offer Services</h2>
+        <form action="update_offer_services.php?id=<?= $id; ?>" method="POST">
+            <input type="hidden" name="id" value="<?= $ofs["id"]; ?>">
 
-        <label for="customer_id">Customer ID:</label>
-        <input type="text" name="customer_id" value="<?= $ofs["customer_id"]; ?>" readonly><br>
+            <div class="mb-3">
+                <label for="customer_id" class="form-label">Customer ID:</label>
+                <input type="text" name="customer_id" value="<?= $ofs["customer_id"]; ?>" readonly class="form-control">
+            </div>
 
-        <label for="contact_id">Contact ID:</label>
-        <input type="text" name="contact_id" value="<?= $ofs["contact_id"]; ?>" readonly><br>
+            <div class="mb-3">
+                <label for="contact_id" class="form-label">Contact ID:</label>
+                <input type="text" name="contact_id" value="<?= $ofs["contact_id"]; ?>" readonly class="form-control">
+            </div>
 
-        <label for="offer_description">Offer Description:</label>
-        <input type="text" name="offer_description" value="<?= $ofs["offer_description"]; ?>" required><br>
+            <div class="mb-3">
+                <label for="offer_description" class="form-label">Offer Description:</label>
+                <input type="text" name="offer_description" value="<?= $ofs["offer_description"]; ?>" required class="form-control">
+            </div>
 
-        <label for="service_catalog_id">Service Catalog</label>
-        <select name="service_catalog_id" required>
-            <?php
-            $sc = query("SELECT * FROM service_catalog");
-            foreach ($sc as $row2) :
-                $selected = ($row2['id'] == $ofs['service_catalog_id']) ? 'selected' : '';
-            ?>
-                <option value="<?= $row2['id']; ?>" <?= $selected; ?>><?= $row2['id']; ?></option>
-            <?php endforeach ?>
-        </select><br>
+            <div class="mb-3">
+                <label for="service_catalog_id" class="form-label">Service Catalog</label>
+                <select name="service_catalog_id" required class="form-select">
+                    <?php
+                    $sc = query("SELECT * FROM service_catalog");
+                    foreach ($sc as $row2) :
+                        $selected = ($row2['id'] == $ofs['service_catalog_id']) ? 'selected' : '';
+                    ?>
+                        <option value="<?= $row2['id']; ?>" <?= $selected; ?>><?= $row2['id']; ?></option>
+                    <?php endforeach ?>
+                </select>
+            </div>
 
-        <label for="service_discount">Service Discount:</label>
-        <input type="text" name="service_discount" value="<?= $ofs["service_discount"]; ?>" required><br>
+            <div class="mb-3">
+                <label for="service_discount" class="form-label">Service Discount:</label>
+                <input type="text" name="service_discount" value="<?= $ofs["service_discount"]; ?>" required class="form-control">
+            </div>
 
-        <label for="offer_price">Offer Price:</label>
-        <input type="text" name="offer_price" value="<?= $ofs["offer_price"]; ?>" required><br>
+            <div class="mb-3">
+                <label for="offer_price" class="form-label">Offer Price:</label>
+                <input type="text" name="offer_price" value="<?= $ofs["offer_price"]; ?>" required class="form-control">
+            </div>
 
-        <div class="form-group center">
-            <input type="submit" name="submit" value="Update">
-        </div>
-    </form>
+            <div class="mb-3">
+                <input type="submit" name="submit" value="Update" class="btn btn-primary">
+            </div>
+        </form>
+    </div>
 
 </body>
 

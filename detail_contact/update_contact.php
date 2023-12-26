@@ -17,12 +17,12 @@ if (isset($_POST['submit'])) {
     if (update_contact($_POST) > 0) {
         echo "<script>
                 alert('Data Berhasil Diupdate!');
-                document.location.href='index.php';
+                document.location.href='../index.php';
               </script>";
     } else {
         echo "<script>
                 alert('Data Gagal Diupdate!');
-                document.location.href='index.php';
+                document.location.href='../index.php';
               </script>";
     }
 }
@@ -35,37 +35,47 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Data Contact</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
+    <div class="container">
+        <form action="update_contact.php?id=<?= $id; ?>" method="post">
+            <!-- Hapus input untuk ID -->
+            <input type="hidden" name="id" value="<?= $id; ?>">
 
-    <form action="update_contact.php?id=<?= $id; ?>" method="post">
-        <!-- Hapus input untuk ID -->
-        <input type="hidden" name="id" value="<?= $id; ?>">
+            <div class="mb-3 mt-3">
+                <label for="contact_type_id" class="form-label">Contact Type ID</label>
+                <select class="form-select" name="contact_type_id">
+                    <?php foreach ($cty as $baris) : ?>
+                        <option value="<?= $baris["contact_type_id"]; ?>"><?= $baris["contact_type_id"]; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-        <label for="contact_type_id">Contact Type ID:</label>
-        <select name="contact_type_id">
-            <?php foreach ($cty as $baris) : ?>
-                <option value="<?= $baris["contact_type_id"]; ?>"><?= $baris["contact_type_id"]; ?></option>
-            <?php endforeach; ?>
-        </select><br>
+            <div class="mb-3">
+                <label for="customer_id" class="form-label">Customer ID</label>
+                <input type="text" name="customer_id" value="<?= $cust["id"]; ?>" readonly class="form-control">
+            </div>
 
-        <label for="customer_id">Customer ID:</label>
-        <input type="hidden" name="customer_id" value="<?= $cust["id"]; ?>" readonly>
-        <?= $cust["id"]; ?><br>
+            <div class="mb-3 mt-3">
+                <label for="schedule_id" class="form-label">Schedule ID</label>
+                <select class="form-select" name="schedule_id">
+                    <?php foreach ($sc as $row) : ?>
+                        <option value="<?= $row["schedule_id"]; ?>"><?= $row["schedule_id"]; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-        <label for="schedule_id">Schedule ID:</label>
-        <select name="schedule_id">
-            <?php foreach ($sc as $row) : ?>
-                <option value="<?= $row["schedule_id"]; ?>"><?= $row["schedule_id"]; ?></option>
-            <?php endforeach; ?>
-        </select><br>
+            <div class="mb-3">
+                <label for="contact_details" class="form-label">Contact Details</label>
+                <input type="text" name="contact_details" value="<?= $det["contact_details"]; ?>" required class="form-control">
+            </div>
 
-        <label for="contact_details">Contact Details:</label>
-        <input type="text" name="contact_details" value="<?= $det["contact_details"]; ?>" required><br>
-        <input type="submit" name="submit" value="Update">
-    </form>
-
+            <input type="submit" name="submit" value="Update" class="btn btn-primary">
+        </form>
+    </div>
 </body>
 
 </html>
