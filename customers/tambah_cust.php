@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
 
 <body>
     <div class="container judul">
-        <h2 class="judul teks"> Data Customer</h2>
+        <h2 class="judul teks"> Data Customer</h2> <br>
     </div>
 
     <div class="container">
@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
                     <input type="text" name="last_name" class="form-control" placeholder="Last name" aria-label="Last name">
                 </div>
             </div>
-            <div class="mb-3">
+            <div class="mt-3 mb-3">
                 <label for="first_name">Company</label>
                 <input type="text" name="company_name" class="form-control" placeholder="Company Name" aria-label="Company Name">
             </div>
