@@ -16,12 +16,12 @@ if (isset($_POST['submit'])) {
     if (tambah_contact($_POST) > 0) {
         echo "<script>
                 alert('Data berhasil ditambahkan!');
-                document.location.href='index.php';
+                document.location.href='../index.php';
               </script>";
     } else {
         echo "<script>
                 alert('Data gagal ditambahkan!');
-                document.location.href='index.php';
+                document.location.href='../index.php';
               </script>";
     }
 }
@@ -34,39 +34,52 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tambah Data Contact</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
+    <div class="container">
+        <form action="tambah_contact.php?id=<?= $id; ?>" method="post">
+            <div class="row">
+                <div class="col-6">
+                    <label for="first_name">ID</label>
+                    <input class="form-control" type="text" value="<?= $id; ?>" name="id" aria-label="readonly input example" readonly>
+                </div>
+                <div class="col-6">
+                    <label for="Contactid">Contact type Id</label>
+                    <select class="form-select" aria-label="Default select example" name="contact_type_id">
+                        <option selected>Pilih Contact Type</option>
+                        <?php foreach ($cty as $baris) : ?>
+                            <option value="<?= $baris["contact_type_id"]; ?>"><?= $baris["contact_type_id"]; ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
 
-    <form action="tambah_contact.php?id=<?= $id; ?>" method="post">
+            <div class="col-6">
+                <label for="first_name">customer_id</label>
+                <input class="form-control" type="text" name="customer_id" value="<?= $cust["id"]; ?>" aria-label="readonly input example" readonly>
+            </div>
 
-        <!-- Hapus input untuk ID -->
-        <label for="contact_type_id">ID Contact:</label>
-        <input type="text" name="id" value="<?= $id; ?>" readonly><br>
+            <div class="col-6">
+                <label for="schedule_id">Pilih Schudle ID</label>
+                <select class="form-select" aria-label="Default select example" id="schedule_id" name="schedule_id">
+                    <option selected>Pilih Schudle ID</option>
+                    <?php foreach ($sc as $row) : ?>
+                        <option value="<?= $row["schedule_id"]; ?>"><?= $row["schedule_id"]; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
 
-        <label for="contact_type_id">Contact Type ID:</label>
-        <select name="contact_type_id">
-            <?php foreach ($cty as $baris) : ?>
-                <option value="<?= $baris["contact_type_id"]; ?>"><?= $baris["contact_type_id"]; ?></option>
-            <?php endforeach; ?>
-        </select><br>
+            <div class="mb-3">
+                <label for="contact_details">Contact Details</label>
+                <input type="tel" class="form-control" placeholder="Add Your Contact Details " aria-label="Addres" name="contact_details">
+            </div>
 
-        <label for="customer_id">Customer ID:</label>
-        <input type="text" name="customer_id" value="<?= $cust["id"]; ?>" readonly><br>
-
-        <label for="schedule_id">Schedule ID:</label>
-        <select name="schedule_id">
-            <?php foreach ($sc as $row) : ?>
-                <option value="<?= $row["schedule_id"]; ?>"><?= $row["schedule_id"]; ?></option>
-            <?php endforeach; ?>
-        </select><br>
-
-        <label for="contact_details">Contact Details:</label>
-        <input type="text" name="contact_details" required><br>
-
-        <input type="submit" name="submit" value="Tambah">
-    </form>
-
+            <input type="submit" name="submit" value="Tambah">
+        </form>
+    </div>
 </body>
 
 </html>
