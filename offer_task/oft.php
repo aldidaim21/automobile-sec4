@@ -18,22 +18,38 @@ $offers = query("SELECT * FROM offer_task");
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg">
+    <!-- Your Navbar Code -->
+    <nav class="navbar navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Automobile</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#">Automobile.ID</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
-                    <a class="nav-link" aria-current="page" href="../index.php">Home</a>
-                    <a class="nav-link" href="../task_catalog/task_catalog.php">Task Catalog</a>
-                    <a class="nav-link" href="../service_catalog/service.php">Service Catalog</a>
-                    <a class="nav-link active" href="oft.php">Offer Task</a>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="5" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Automobile.ID</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav flex-grow-1 pe-1">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.php">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="../task_catalog/task_catalog.php">Task Catalog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../service_catalog/service.php">Service Catalog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="oft.php">Offer Task</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </nav>
+
     <h2>Offer Task List</h2>
     <div class="container mt-5">
         <table class="table table-bordered">
