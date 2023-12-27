@@ -43,12 +43,12 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="mb-3">
-                <label for="task_name" class="form-label">Nama Tugas:</label>
+                <label for="task_name" class="form-label">Task Name:</label>
                 <input type="text" name="task_name" required class="form-control">
             </div>
 
             <div class="mb-3">
-                <label for="service_catalog_id" class="form-label">ID Katalog Layanan:</label>
+                <label for="service_catalog_id" class="form-label">Service Catalog ID:</label>
                 <select name="service_catalog_id" required class="form-select">
                     <?php foreach ($sc as $row) : ?>
                         <option value="<?= $row['id']; ?>"><?= $row['id']; ?></option>
@@ -57,37 +57,37 @@ if (isset($_POST['submit'])) {
             </div>
 
             <div class="mb-3">
-                <label for="description" class="form-label">Deskripsi:</label>
+                <label for="description" class="form-label">Description:</label>
                 <textarea type="text" name="description" required class="form-control"></textarea>
             </div>
 
             <div class="mb-3">
-                <label for="ref_interval" class="form-label">Interval Referensi:</label>
+                <label for="ref_interval" class="form-label">References Interval:</label>
                 <input type="text" name="ref_interval" required class="form-control">
             </div>
 
             <div class="mb-3">
-                <label for="ref_interval_min" class="form-label">Interval Referensi Minimum:</label>
+                <label for="ref_interval_min" class="form-label">Minimum References Interval:</label>
                 <input type="text" name="ref_interval_min" required class="form-control">
             </div>
 
             <div class="mb-3">
-                <label for="ref_interval_max" class="form-label">Interval Referensi Maksimum:</label>
+                <label for="ref_interval_max" class="form-label">Maximum References Interval:</label>
                 <input type="text" name="ref_interval_max" required class="form-control">
             </div>
 
             <div class="mb-3">
-                <label for="describe" class="form-label">Deskripsi Tugas:</label>
+                <label for="describe" class="form-label">Task Description:</label>
                 <input type="text" name="describe" required class="form-control">
             </div>
 
             <div class="mb-3">
-                <label for="task_price" class="form-label">Harga Tugas:</label>
+                <label for="task_price" class="form-label">Task Price:</label>
                 <input type="text" name="task_price" required class="form-control">
             </div>
 
             <div class="mb-3">
-                <label for="is_active" class="form-label">Aktif:</label>
+                <label for="is_active" class="form-label">Is Active:</label>
                 <input type="text" name="is_active" required class="form-control">
             </div>
 
