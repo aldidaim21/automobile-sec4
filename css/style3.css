@@ -1,3 +1,28 @@
+<<<<<<< HEAD
 .card-header{
     font-weight: bold;
 }
+=======
+.navbar {
+  background-color: rgb(95, 95, 245);
+}
+
+.navbar .nav-link {
+  color: white; /* Change the text color to white or any other color that suits your design */
+}
+.navbar .nav-link .active {
+  color: white; /* Change the text color to white or any other color that suits your design */
+}
+.navbar .navbar-brand {
+  color: white;
+}
+
+.big {
+  padding-top: 30px;
+}
+
+.table td,
+.table th {
+  padding: 8px;
+}
+>>>>>>> 1a2a811041a591f117d4b7b91aa370fc4ebd4dda
