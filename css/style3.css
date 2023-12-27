@@ -1,14 +1,22 @@
 .navbar {
-    position: relative;
-    z-index: 1;
+  background-color: rgb(95, 95, 245);
 }
 
-.navbar-nav {
-    font-style: bold;
-    font-size: 450px;
+.navbar .nav-link {
+  color: white; /* Change the text color to white or any other color that suits your design */
+}
+.navbar .nav-link .active {
+  color: white; /* Change the text color to white or any other color that suits your design */
+}
+.navbar .navbar-brand {
+  color: white;
 }
 
-.navbar-brand span {
-    color: crimson;
+.big {
+  padding-top: 30px;
 }
 
+.table td,
+.table th {
+  padding: 8px;
+}
