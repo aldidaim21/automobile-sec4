@@ -22,6 +22,8 @@ $tasks = query("SELECT * FROM task_catalog");
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
+
+
             <a class="navbar-brand" href="index.php">Automobile<span>.ID</span></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -40,9 +42,16 @@ $tasks = query("SELECT * FROM task_catalog");
     </nav>
 
     <div class="container task mt-5">
-        <h2>Task Catalog List</h2>
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <a class="btn btn-primary" href="task_catalog_tambah.php">TAMBAH DATA</a>
+            <h2>Task Catalog List</h2>
+        </div>
+
+
         <table class="table table-bordered mt-3">
             <thead class="thead-dark">
+
                 <tr>
                     <th>ID</th>
                     <th>Task Name</th>
@@ -78,7 +87,7 @@ $tasks = query("SELECT * FROM task_catalog");
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <a class="btn btn-primary" href="task_catalog_tambah.php">TAMBAH DATA</a>
+
     </div>
 
     <!-- Bootstrap JS and Popper.js (required for Bootstrap) -->
