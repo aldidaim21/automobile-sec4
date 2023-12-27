@@ -71,8 +71,6 @@ if (isset($_POST['submit'])) {
 
             <input type="submit" name="submit" value=" Konfirmasi Tambah Data" class="btn btn-success">
         </form>
-
-        <input type="submit" name="submit" value="Tambah" class="btn btn-primary">
         </form>
     </div>
 </body>

@@ -12,4 +12,12 @@ if (hapus_cust($id) > 0) {
 			</script>
 
 	";
+} else {
+	echo "
+			<script>
+			alert('Data gagal dihapus!');
+			document.location.href='index.php';
+			</script>
+
+	";
 }
