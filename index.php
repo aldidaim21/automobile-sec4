@@ -96,6 +96,19 @@
         </div>
         <!-- akhir jumbotron -->
 
+        <!-- quotes -->
+        <div class="container-fluid quotes">
+            <figure class="text-center">
+                <blockquote class="blockquote">
+                    <p>
+                        A well-maintained car is a reflection of commitment to both performance and longevity on the road.</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                    Automobile.ID
+                </figcaption>
+            </figure>
+        </div>
+        <!-- akhir quotes -->
 
         <!-- container 1 -->
         <div class="container">
@@ -248,26 +261,36 @@
 
         </div>
 
+        <div class="container-fluid suggestions">
+            <div class="suggest">
+                <h1>Suggestions</h1>
+            </div>
+
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@automobile-id.com">
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Write your suggestions here</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Hello, Automobile. I want to..." rows="5"></textarea>
+            </div>
 
 
+            <!-- Optional JavaScript; choose one of the two! -->
 
+            <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
-
-
-
-
-        <!-- Optional JavaScript; choose one of the two! -->
-
-        <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-
-        <!-- Option 2: Separate Popper and Bootstrap JS -->
-        <!--
+            <!-- Option 2: Separate Popper and Bootstrap JS -->
+            <!--
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
     -->
     </body>
+    <footer>
+        <p>&copy; fifeldaimlangrad</p>
+    </footer>
 
     </html>
